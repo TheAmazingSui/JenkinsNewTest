@@ -12,6 +12,8 @@ pipeline {
         stage('w/o docker') {
           steps {
             sh 'echo "without docker"'
+            sh 'ls -la'
+            sh 'touch container-no.txt'
           }
         }
 
@@ -24,6 +26,8 @@ pipeline {
           }
           steps {
             sh 'echo "With Docker"'
+            sh 'ls -la'
+            sh 'touch container-yes.txt'
             sh 'npm --version'
           }
         }
