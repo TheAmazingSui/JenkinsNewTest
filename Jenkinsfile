@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('Check npm') {
+      steps {
+        sh 'npm --version'
+      }
+    }
+
   }
 }
