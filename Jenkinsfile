@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('Check npm') {
-      steps {
-        sh 'echo "without docker"'
+      parallel {
+        stage('w/o docker') {
+          steps {
+            sh 'echo "without docker"'
+          }
+        }
+
+        stage('with docker') {
+          steps {
+            sh 'echo "With Docker"'
+          }
+        }
+
       }
     }
 
