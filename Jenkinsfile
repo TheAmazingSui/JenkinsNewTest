@@ -24,11 +24,6 @@ pipeline {
           }
           steps {
             sh 'echo "With Docker"'
-          }
-        }
-
-        stage('') {
-          steps {
             sh 'npm --version'
           }
         }
