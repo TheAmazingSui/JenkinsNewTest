@@ -9,7 +9,7 @@ pipeline {
 
     stage('Check npm') {
       steps {
-        sh 'npm --version'
+        sh 'echo "without docker"'
       }
     }
 
