@@ -27,6 +27,12 @@ pipeline {
           }
         }
 
+        stage('') {
+          steps {
+            sh 'npm --version'
+          }
+        }
+
       }
     }
 
