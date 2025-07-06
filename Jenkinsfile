@@ -20,7 +20,7 @@ pipeline {
 ls -la
 node --version
 npm --version
-rm -rf node_modules
+sudo chown -R 110:119 "/.npm"
 npm ci
 npm run build'''
       }
