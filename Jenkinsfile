@@ -15,7 +15,8 @@ pipeline {
 
       }
       steps {
-        sh '''ls -la
+        sh '''cd learn-jenkins-app
+ls -la
 node --version
 npm --version
 npm ci
