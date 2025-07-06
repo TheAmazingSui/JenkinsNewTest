@@ -7,31 +7,19 @@ pipeline {
       }
     }
 
-    stage('Check npm') {
-      parallel {
-        stage('w/o docker') {
-          steps {
-            sh 'echo "without docker"'
-            sh 'ls -la'
-            sh 'touch container-no.txt'
-          }
+    stage('Build') {
+      agent {
+        docker {
+          image 'node:18-alpine'
         }
 
-        stage('with docker') {
-          agent {
-            docker {
-              image 'node:18-alpine'
-            }
-
-          }
-          steps {
-            sh 'echo "With Docker"'
-            sh 'ls -la'
-            sh 'touch container-yes.txt'
-            sh 'npm --version'
-          }
-        }
-
+      }
+      steps {
+        sh '''ls -la
+node --version
+npm --version
+npm ci
+npm run build'''
       }
     }
 
